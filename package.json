@@ -16,11 +16,11 @@
     "author": "YuTengjing",
     "license": "ISC",
     "lint-staged": {
-        "{notes, test}/**/*.{js,jsx,ts,tsx,json}": [
+        "{notes, test}/**/*.{js,jsx,ts,tsx,json,html}": [
             "prettier --single-quote --write",
             "git add"
         ],
-        "{notes, test}/**/*.{css, scss}": [
+        "{notes, test}/**/*.{css, scss, html}": [
             "stylelint",
             "git add"
         ]

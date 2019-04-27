@@ -8,3 +8,30 @@ MDN 中描述到：
 
 经过我的测试也是可行的：
 
+**测试代码：**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>element</title>
+    <style>
+        .no-quotation-attr {
+            color: purple;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <p class=no-quotation-attr>attribute 值如果没有特殊字符可以不用双引号括起来</p>
+</body>
+</html>
+```
+
+**效果：**
+
+![效果图](https://github.com/tjx666/FE-Getting-Started/blob/master/notes/HTML/element/screenshots/rendering-no-quotation.png?raw=true)
+
