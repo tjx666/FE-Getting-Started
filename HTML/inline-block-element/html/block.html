@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试块级元素</title>
+    <style>
+        .block-element-out {
+            box-sizing: border-box;
+            width: 400px;
+            height: 200px;
+            margin: 50px auto;
+            border: 1px solid blue;
+        }
+
+        .block-element-inner {
+            box-sizing: border-box;
+            border: 1px solid yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <em>----------------------------------------块级元素前的行内元素----------------------------------------</em>
+    <div class="block-element-out">
+        <div class="block-element-inner">
+            <span>块级元素 div 另起一行，包含一个行内元素 span。</span>
+        </div>
+    </div>
+    <em>----------------------------------------块级元素后的行内元素----------------------------------------</em>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>块级元素在内联元素中时会怎么样？</title>
+    <style>
+        .container1 {
+            width: 560px;
+            height: 240px;
+            margin: 20px auto;
+            border: 2px solid lightsalmon;
+        }
+
+        .container2 {
+            width: 560px;
+            height: 240px;
+            margin: 10px auto;
+            border: 2px solid lightsalmon;
+        }
+
+        .span-out-of-div,
+        .span2 {
+            margin-left: 20px;
+            padding-top: 20px;
+            background-color: lightpink;
+        }
+
+        .div-in-span,
+        .div2 {
+            width: 100px;
+            height: 50px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <span class="span-out-of-div">
+            span 中的文本
+            <div class="div-in-span">div 中的文本</div>
+            div 后面的文本
+        </span>
+    </div>
+    <div class="container2">
+        <span class="span2">span 中的文本</span>
+        <div class="div2">div 中的文本</div>
+        <span class="span2">div 后面的文本</span>
+    </div>
+</body>
+
+</html>

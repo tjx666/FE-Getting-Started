@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试内联元素</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .inline-element {
+            width: 1000px;
+            height: 500px;
+            margin: 100px 20px;
+            padding: 100px 100px;
+            line-height: 100px;
+            background-color: lightcoral;
+            opacity: .5;
+        }
+
+        .test-vertical-padding-in-inline-element {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>行内元素显示在同一行 => <span><span>价格:</span><i>18元</i></span></p>
+    <p><b><del><u><span>一个行内元素 span，可以不断被其它元素嵌套</span></u></del></b></p>
+    <p class="test-vertical-padding-in-inline-element">
+        <span>这是上面的文字，不受下面 span 垂直方向的 padding 影响。内联元素的 margin 和 padding 只有水平方向才会对其它元素起作用。</span><br />
+        <span>左边的文字，右边文字的 margin-left 和 padding-left 起作用了。</span><span class="inline-element">测试 span
+            的盒子模型属性，width和height 不起作用。</span>
+    </p>
+    <form>
+        <div class="form-control">
+            <label for="email" id="email">邮箱：</label>
+            <input type="email">
+            <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+            <button>提交</button><button>重置</button>
+        </div>
+    </form>
+</body>
+
+</html>
