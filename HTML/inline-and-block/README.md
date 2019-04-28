@@ -45,7 +45,7 @@
 </html>
 ```
 
-![块级元素测试截图](https://github.com/tjx666/FE-Getting-Started/blob/master/HTML/inline-block-element/screenshots/block-element.png?raw=true)
+![块级元素测试截图](https://github.com/tjx666/FE-Getting-Started/blob/master/HTML/inline-and-block/screenshots/block-element.png?raw=true)
 
 ## 行内元素的特征
 
@@ -108,7 +108,7 @@
 </html>
 ```
 
-![行内元素测试截图](https://github.com/tjx666/FE-Getting-Started/blob/master/HTML/inline-block-element/screenshots/inline-element.png?raw=true)
+![行内元素测试截图](https://github.com/tjx666/FE-Getting-Started/blob/master/HTML/inline-and-block/screenshots/inline-element.png?raw=true)
 
 **测试块级元素在行内元素中的表现：**
 
@@ -170,5 +170,5 @@
 </html>
 ```
 
-![块级元素在行内元素中的表现](https://github.com/tjx666/FE-Getting-Started/blob/master/HTML/inline-block-element/screenshots/block-in-inline.png?raw=true)
+![块级元素在行内元素中的表现](https://github.com/tjx666/FE-Getting-Started/blob/master/HTML/inline-and-block/screenshots/block-in-inline.png?raw=true)
 
