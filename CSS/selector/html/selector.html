@@ -12,17 +12,214 @@
             box-sizing: border-box;
         }
 
-        /* 逗号隔开的群组选择器, 就是多选的意思 */
+        /* * 是通配符选择器，优先级应该是最低了 */
+        /* 逗号隔开表示群组选择器, 就是多选的意思 */
+        /* :: 伪元素选择器 */
         *,
         *::before,
         *::after {
             box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 50px 100px;
+        }
+
+        #root {
+            display: flex;
+        }
+
+        /* 类选择器 */
+        .seasons {
+            list-style: none;
+        }
+
+        /* : 伪选择器 */
+        .seasons>li:not(:first-child) {
+            margin-top: 20px;
+        }
+
+        .life-happy-events {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        /* ~通用选择器，选着后面所有兄弟 */
+        .life-happy-events>li:first-child~li {
+            margin-top: 10px;
+        }
+
+        #students {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        /* [] 属性选择器，自定义属性也可以选择 */
+        table[custom-attr] {
+            width: 500px;
+            border: 2px solid lightskyblue;
+        }
+
+        #students>thead {
+            font-weight: bold;
+        }
+
+        /* id 选择器，使用 id 选择器就不要加上其它限制啦，比如 #students[custom-attr] 的 [custom-attr] 是完全没必要的 */
+        /* 浏览器解析选择器是从右向左解析的 */
+        #students[custom-attr]>tbody>tr:nth-child(even) {
+            background-color: lightgoldenrodyellow;
+        }
+
+        #students>tbody>tr {
+            border-top: 1px solid #000;
+        }
+
+        /* 在链接上测试伪类 */
+        .my-index:link {
+            color: chartreuse;
+        }
+
+        .my-index:hover {
+            color: lightsalmon;
+        }
+
+        .my-index:active {
+            background-color: lightgoldenrodyellow;
+        }
+
+        .ny-index:visited {
+            color: yellow;
+        }
+
+        .my-index::selection {
+            background-color: aqua;
+        }
+
+        form.right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 360px;
+            height: 240px;
+            padding-top: 50px;
+            border: 1px solid lightskyblue;
+        }
+
+        .right label {
+            margin-right: 10px;
+        }
+
+        .form-control:not(:first-child) {
+            margin-top: 20px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        input[type="email"]:focus {
+            background-color: lightslategray;
+        }
+
+        button:disabled {
+            background-color: lightblue;
+        }
+
+        div:empty {
+            width: 50px;
+            height: 10px;
+            margin-top: 10px;
+            background-color: lightsalmon;
+        }
+
+        div:empty:nth-child(n+2)::after {
+            content: "123"
         }
     </style>
 </head>
 
 <body>
-
+    <div id="root">
+        <div class="left">
+            <ul class="seasons">
+                <li>Spring</li>
+                <li>Summer</li>
+                <li>Autumn</li>
+                <li>Winter</li>
+            </ul>
+            <ol class="life-happy-events">
+                <li>久旱逢甘霖</li>
+                <li>他乡遇故知</li>
+                <li>洞房花烛夜</li>
+                <li>金榜题名时</li>
+            </ol>
+            <table id="students" custom-attr="自定义属性">
+                <thead>
+                    <!-- 这里再=在渲染的时候会自动加上 tr -->
+                    <td>姓名</td>
+                    <td>年龄</td>
+                    <td>专业</td>
+                    <td>成绩</td>
+                </thead>
+                <!-- 这里在渲染的时候会自动加上 tbody -->
+                <tr>
+                    <td>ly</td>
+                    <td>22</td>
+                    <td>物联网工程</td>
+                    <td>88</td>
+                </tr>
+                <tr>
+                    <td>xiao hong</td>
+                    <td>21</td>
+                    <td>计算机科学</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>bob</td>
+                    <td>22</td>
+                    <td>网络工程</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>ly</td>
+                    <td>22</td>
+                    <td>物联网工程</td>
+                    <td>88</td>
+                </tr>
+                <tr>
+                    <td>xiao hong</td>
+                    <td>21</td>
+                    <td>计算机科学</td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>bob</td>
+                    <td>22</td>
+                    <td>网络工程</td>
+                    <td>80</td>
+                </tr>
+            </table>
+            <a class="my-index self-github-profile" href="https://github.com/tjx666" target="_blank">我的 github 主页</a>
+            <a class="my-index" href="https://juejin.im/user/5ad0dcaa6fb9a028d93794b9/posts">我的掘金主页</a>
+            <a class="my-index" href="#">回到顶部</a>
+        </div>
+        <form class="right">
+            <div class="form-control">
+                <label for="email">邮箱:</label><input type="email" id="user-email">
+            </div>
+            <div class="form-control">
+                <label for="pwd">密码:</label><input type="password" id="pwd">
+            </div>
+            <div class="buttons"><button type="submit">提交</button> <button disabled type="reset">重置</button></div>
+        </form>
+    </div>
+    <h3>一堆空 div</h3>
+    <div></div>
+    <div></div>
+    <div></div>
 </body>
 
 </html>
