@@ -4,6 +4,10 @@
 
 1. [HTML相关面试题](<https://github.com/tjx666/FE-Getting-Started/blob/master/HTML/README.md>)
 
+### 推荐博主
+
+1. [chokcoco](<https://www.cnblogs.com/coco1s>) CSS 的文章很多
+
 ### 参考文章清单
 
 #### HTML
@@ -32,5 +36,11 @@
 6. [70个老司机技巧教你更好的进行CSS编程](<https://juejin.im/entry/5aceccc2f265da23945fdb84>) 有些内容过时了
 
 7. [::before有什么作用？::before与:before的区别是什么？](<http://m.php.cn/article/412795.html>) 简洁明了
+
+### 前端构建工具
+
+#### git
+
+1. [Cz工具集使用介绍 - 规范Git提交说明](https://juejin.im/post/5cc4694a6fb9a03238106eb9)
 
    
