@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://cdn.staticfile.org/jquery/3.4.1/jquery.js"></script>
+    <title>test click event</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: relative;
+            top: 600px;
+            left: 200px;
+            width: 900px;
+            height: 600px;
+            margin-bottom: 20px;
+            background-color: lightcoral;
+        }
+
+        .inner-box {
+            position: absolute;
+            top: 100px;
+            left: 200px;
+            width: 500px;
+            height: 400px;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="inner-box"></div>
+    </div>
+</body>
+<script>
+    window.addEventListener('load', () => {
+        const testBox = document.querySelector('.inner-box');
+        testBox.addEventListener('click', (event) => {
+            const needKeys = [
+                'offsetX',
+                'offsetY',
+                'layerX',
+                'layerY',
+                'clientX',
+                'clientY',
+                'pageX',
+                'pageY',
+                'screenX',
+                'screenY',
+                'x',
+                'y'
+            ];
+
+            // console.log(event.clientY + window.pageYOffset)
+            // console.log(event.clientY + document.documentElement.scrollTop - document.documentElement
+            //     .clientTop)
+            // console.log(event.clientY + document.body.scrollTop)
+
+
+            needKeys.forEach((key) => {
+                console.log(`${key}: ${event[key]}`);
+            })
+
+            console.dir(event);
+        })
+    })
+</script>
+
+</html>
