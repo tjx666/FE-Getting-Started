@@ -20,11 +20,12 @@
         margin: 100px auto;
         background-color: lightcoral;
         border-radius: 50%;
-        animation-name: blink;
+        /* animation-name: blink;
         animation-duration: 500ms;
         animation-timing-function: linear;
         animation-delay: 1s;
-        animation-iteration-count: infinite;
+        animation-iteration-count: infinite; */
+        animation: blink 1s linear 2s infinite alternate both running;
     }
 
     @keyframes blink {
@@ -38,11 +39,60 @@
         }
     }
 
+    .polling_message {
+        float: left;
+        margin-right: 2%;
+        color: white;
+    }
 
+    .view_port {
+        width: 100%;
+        height: 25px;
+        overflow: hidden;
+        background-color: black;
+    }
+
+    .cylon_eye {
+        width: 20%;
+        height: 100%;
+        color: white;
+        background-color: red;
+        background-image: linear-gradient(to right,
+                rgba(0, 0, 0, .9) 25%,
+                rgba(0, 0, 0, .1) 50%,
+                rgba(0, 0, 0, .9) 75%);
+        animation: 4s linear 0s infinite alternate move_eye;
+    }
+
+    @-webkit-keyframes move_eye {
+        from {
+            margin-left: -20%;
+        }
+
+        to {
+            margin-left: 100%;
+        }
+    }
+
+    @keyframes move_eye {
+        from {
+            margin-left: -20%;
+        }
+
+        to {
+            margin-left: 100%;
+        }
+    }
 </style>
 
 <body>
     <img class="blink-circle" src="../images/red-heart.jpg"></img>
+    <div class="view_port">
+        <div class="polling_message">
+            Listening for dispatches
+        </div>
+        <div class="cylon_eye"></div>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transition</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding-left: 50px;
+        }
+
+        .question-button {
+            width: fit-content;
+            height: 36px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding: 0 6px;
+            line-height: 36px;
+            background-color: rgba(0, 128, 0, 0.4);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color .2s ease-in;
+        }
+
+        .question-button:hover {
+            color: rgba(255, 255, 255, 0.774);
+            background-color: rgba(0, 128, 0, 0.8);
+        }
+
+        #question {
+            width: 360px;
+            margin-left: -414px;
+            border: 2px solid lightblue;
+            transition: margin-left .4s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="question-button">有疑问？</div>
+    <textarea name="question" id="question" cols="50" rows="10" placeholder="输入你的问题..."></textarea>
+</body>
+<script>
+    window.addEventListener('load', () => {
+        const questionButton = document.querySelector('.question-button');
+        const inputQuestion = document.querySelector('#question');
+
+        questionButton.addEventListener('click', () => {
+            if (questionButton.textContent === '有疑问？') {
+                questionButton.textContent = '收起';
+                inputQuestion.style.marginLeft = '0';
+            } else {
+                questionButton.textContent = '有疑问？';
+                inputQuestion.style.marginLeft = `-414px`;
+            }
+
+        })
+
+    })
+</script>
+
+</html>

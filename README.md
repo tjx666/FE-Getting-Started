@@ -21,21 +21,19 @@
 
 #### CSS
 
-##### CSS 选择器
+##### 选择器
 
 1. [CSS并不简单--选择器大家庭](<https://juejin.im/post/59a61c11f265da248d0ce1e5>)
-
 2. [CSS选择器整理](<https://segmentfault.com/a/1190000007815822>) 表格排版很清晰
-
 3. [精读《使用 CSS 属性选择器》](<https://juejin.im/post/5bfb411a6fb9a049f153df56>) 有些少见的 CSS 技巧
-
 4. [前端面试题-CSS选择器性能优化](<https://segmentfault.com/a/1190000013768970#articleHeader3>) 有些观点比较偏激
-
 5. [一张图搞定CSS选择器知识](<https://www.nuist.today/ejIjWE/>) 还是图片更清晰易懂
-
 6. [70个老司机技巧教你更好的进行CSS编程](<https://juejin.im/entry/5aceccc2f265da23945fdb84>) 有些内容过时了
-
 7. [::before有什么作用？::before与:before的区别是什么？](<http://m.php.cn/article/412795.html>) 简洁明了
+
+##### 动画
+
+1. [CSS动画：animation、transition、transform、translate傻傻分不清](<https://juejin.im/post/5b137e6e51882513ac201dfb>) 各自特点分析的挺好的
 
 ### 前端构建工具
 
