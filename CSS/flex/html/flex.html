@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test flex</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    .test-box {
+        flex: 1;
+        width: 600px;
+        margin: 100px auto;
+        background-color: lightcoral;
+    }
+
+    .inner-box {
+        width: 400px;
+        height: 100%;
+        background-color: lightblue;
+    }
+</style>
+<body>
+    <div class="test-box">
+        <div class="inner-box">
+        </div>
+    </div>
+</body>
+</html>
