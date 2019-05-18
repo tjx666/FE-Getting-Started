@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多行文本溢出方法三</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* 方法三：配合 js */
+        .multiple-line {
+            width: 600px;
+            height: 90px;
+            overflow: hidden;
+            line-height: 30px;
+            background-color: rgba(173, 216, 230, .5);
+        }
+
+        .multiple-line::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="multiple-line">
+        9102 年了，前端工程化发展在 nodejs 的基础上已经发展的非常完善了，各种前端构建辅助工具层出不穷。
+        ES6 编译器 babel，css 辅助工具 postcss / sass / less，代码风格检测工具 eslint / prettier / stylelint，
+        git 辅助工具 husky / lint-staged / commitizen / commitlint，自动化构建工具 webpack / gulp /grunt，
+        测试工具 jest / mocha 等等。
+        这么多开发辅助工具每次写项目都去配置一遍那也太浪费时间了，自己维护一套模板有得时不时去更新。
+        比较方便的配置开发环境还是使用 cli 或者一些热门的 bolierplate。
+        本篇文章将以 react 官方维护的 cli 工具create-react-app （简称 cra）为基础，以不 eject 的方式去配置 ant design，以及一些 cra 并没有内置的辅助工具。
+    </p>
+    <script>
+        window.addEventListener('load', () => {
+            const p = document.querySelector('.multiple-line');
+            const text = p.textContent.trim();
+            p.textContent = '';
+            for (let i = 1, length = text.length; i <= length; i++) {
+                const fillText = text.slice(0, i);
+                p.textContent = fillText;
+
+                if (p.clientHeight < p.scrollHeight) {
+                    p.style.overflow = 'hidden';
+                    p.textContent = fillText.slice(0, -4) + '...';
+                    return;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
