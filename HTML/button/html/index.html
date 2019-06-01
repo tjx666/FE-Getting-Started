@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试 button 元素</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .root {
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        background-color: lightskyblue;
+    }
+
+    .submit-button {
+        /* 无法使用 margin: 0 auto; 居中，因为 button 是行内块 */
+        /* margin: 0 auto; */
+    }
+</style>
+
+<body>
+    <div class="root"><button >确认</button></div>
+</body>
+
+</html>
