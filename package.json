@@ -38,6 +38,12 @@
         "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
         "stylelint-order": "^3.0.0"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
     "lint-staged": {
         "{notes, test}/**/*.{js,jsx,ts,tsx,json,html}": [
             "prettier --single-quote --write",
@@ -63,9 +69,7 @@
             "function-name-case": [
                 "lower",
                 {
-                    "ignoreFunctions": [
-                        "/colorPalette/"
-                    ]
+                    "ignoreFunctions": []
                 }
             ],
             "no-invalid-double-slash-comments": null,
@@ -76,5 +80,10 @@
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"
         }
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
     }
 }
