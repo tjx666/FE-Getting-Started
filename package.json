@@ -15,15 +15,8 @@
     ],
     "author": "YuTengjing",
     "license": "ISC",
-    "lint-staged": {
-        "{notes, test}/**/*.{js,jsx,ts,tsx,json,html}": [
-            "prettier --single-quote --write",
-            "git add"
-        ],
-        "{notes, test}/**/*.{css, scss, html}": [
-            "stylelint",
-            "git add"
-        ]
+    "dependencies": {
+        "lodash": "^4.17.11"
     },
     "devDependencies": {
         "@commitlint/cli": "^7.5.2",
@@ -44,6 +37,16 @@
         "stylelint-config-standard": "^18.3.0",
         "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
         "stylelint-order": "^3.0.0"
+    },
+    "lint-staged": {
+        "{notes, test}/**/*.{js,jsx,ts,tsx,json,html}": [
+            "prettier --single-quote --write",
+            "git add"
+        ],
+        "{notes, test}/**/*.{css, scss, html}": [
+            "stylelint",
+            "git add"
+        ]
     },
     "stylelint": {
         "extends": [
@@ -68,9 +71,6 @@
             "no-invalid-double-slash-comments": null,
             "no-descending-specificity": null
         }
-    },
-    "dependencies": {
-        "lodash": "^4.17.11"
     },
     "config": {
         "commitizen": {
