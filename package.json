@@ -40,8 +40,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged",
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+            "pre-commit": "lint-staged"
         }
     },
     "lint-staged": {
@@ -75,15 +74,5 @@
             "no-invalid-double-slash-comments": null,
             "no-descending-specificity": null
         }
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
-    },
-    "commitlint": {
-        "extends": [
-            "@commitlint/config-conventional"
-        ]
     }
 }
