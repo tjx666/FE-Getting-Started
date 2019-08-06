@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fetch</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        button:active {
+            background-color: coral;
+        }
+    </style>
+</head>
+<div id="root">
+    <p>url: {{response.url}}</p>
+    <p>type: {{response.type}}</p>
+    <p>status: {{response.status}}</p>
+    <p>statusText: {{response.statusText}}</p>
+    <p>ok: {{response.ok}}</p>
+    <p>body:
+        <pre>{{JSON.stringify(body)}}</pre>
+    </p>
+    <button @click="handleFetch">fetch</button>
+</div>
+
+<body>
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data() {
+                return {
+                    response: {},
+                    body: {},
+                }
+            },
+            methods: {
+                handleFetch() {
+                    const URL = `http://localhost:1027/test/json`;
+                    // 和 axios 有点像，直接传一个 url，表示 GET 请求，返回一个 promise
+                    fetch(URL).then(response => {
+                        this.response = response;
+                        response.json().then((jsonObj => {
+                            this.body = jsonObj;
+                        }))
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
