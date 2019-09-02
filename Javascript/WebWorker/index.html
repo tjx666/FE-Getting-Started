@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>web worker</title>
+    <style>
+        button:hover {
+            background-color: lightsteelblue;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div class="app">
+        <button @click="startupWorker">startup worker</button> <button @click="terminateWorker">terminate</button> <button @click="sendCloseSignal">close</button><br />
+        <p><b>status:&nbsp;</b><span :style="styleObj">{{status}}</span></p>
+        <input v-model="expression" type="text" @input="handleInput">&nbsp;<button>=</button>&nbsp;<em class="result">{{result}}</em>
+    </div>
+    <script>
+        new Vue({
+            el: '.app',
+            data() {
+                return {
+                    status: 'closed',
+                    worker: null,
+                    result: '',
+                    expression: ''
+                }
+            },
+            computed: {
+                styleObj() {
+                    return {
+                        color: this.status === 'closed' ? 'red' : 'green'
+                    }
+                }
+            },
+            methods: {
+                startupWorker() {
+                    if (!window.Worker) return;
+                    console.log('[MAIN]: start to load worker!');
+                    this.worker = new Worker('./webWorker.js');
+                    this.status = 'running';
+                    this.worker.onmessage = ({ data }) => {
+                        console.log('[MAIN]: receive message from worker...');
+                        console.log(`[MAIN]: the message is ${JSON.stringify(data)}`)
+                        if (data.type === 'compute result over') {
+                            this.result = data.result;
+                        }
+                    }
+                },
+                terminateWorker() {
+                    this.worker.terminate();
+                    console.log('[MAIN]: terminate worker, now you can\' compute the expression╥﹏╥...')
+                    this.status = 'closed';
+                },
+                sendCloseSignal() {
+                    this.worker.postMessage({ type: 'close' });
+                    this.status = 'closed';
+                },
+                handleInput() {
+                    // if (this.status === 'closed') return alert('worker is closed!');
+                    this.worker.postMessage({
+                        type: 'compute expression',
+                        expression: this.expression
+                    });
+                    console.log('[MAIN]: send expression to worker...');
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
