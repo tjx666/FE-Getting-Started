@@ -16,7 +16,7 @@
     "author": "YuTengjing",
     "license": "ISC",
     "dependencies": {
-        "lodash": "^4.17.11"
+        "lodash": "^4.17.21"
     },
     "devDependencies": {
         "@commitlint/cli": "^7.5.2",
